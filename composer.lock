@@ -4,8 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94d4bf9ac7f4a933030e46a346ee2917",
+    "content-hash": "44209ffef864b581c06f9ad4a24ff458",
     "packages": [
+        {
+            "name": "boolfalse/clearcaches",
+            "version": "v1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/boolfalse/clearcaches.git",
+                "reference": "bdaacc6b198b9ddafc3a7dfbfcee9ce8bf049918"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/boolfalse/clearcaches/zipball/bdaacc6b198b9ddafc3a7dfbfcee9ce8bf049918",
+                "reference": "bdaacc6b198b9ddafc3a7dfbfcee9ce8bf049918",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Boolfalse\\ClearCaches\\ClearCachesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Boolfalse\\ClearCaches\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Package for recreating Laravel all caches, and for dropping all DB tables",
+            "time": "2018-10-01T11:52:46+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
