@@ -11,11 +11,11 @@ class AdminController extends Controller
     {
         $this->middleware('auth:admin');
 
-        View::share('nav', 'dashboard'); //ss
+        View::share('nav', 'dashboard');
     }
 
     public function index()
     {
-        return view('admin.pages.dashboard'); //ss
+        return view('admin.pages.dashboard');
     }
 }
