@@ -26,4 +26,4 @@ Route::group([
 
 });
 
-Route::get('home', 'User\\UserController@index')->name('home');
+Route::get('home', 'UserController@index')->name('home');
