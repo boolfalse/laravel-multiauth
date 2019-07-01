@@ -8,6 +8,7 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Access\AuthorizationException;
+use Spatie\Permission\Exceptions\UnauthorizedException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Session\TokenMismatchException;
@@ -36,6 +37,13 @@ class Handler extends ExceptionHandler
 
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof UnauthorizedException) {
+            if(Auth::user() instanceof Admin){
+                return redirect()->route('admin.dashboard');
+            }
+            return redirect()->route('front');
+        }
+
         return parent::render($request, $exception);
     }
 
