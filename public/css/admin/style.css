@@ -1,0 +1,34 @@
+body.login-page{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body.login-page div.has-feedback{
+    position: relative;
+}
+
+body.login-page div.has-feedback i{
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+
+body.login-page span.invalid-feedback{
+    display: block;
+}
+
+div.br-sideleft-menu a{
+    color:white;
+}
+
+span.required{
+    color:red;
+}
+
+table#datatable1 td p{
+    margin:0px;
+}
+
+a:not([href]):not([tabindex]){
+    color:white;
+}

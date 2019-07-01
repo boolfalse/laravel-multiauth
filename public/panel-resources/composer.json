@@ -1,0 +1,31 @@
+{
+  "name": "boolfalse/boolfalse",
+  "description": "BoolFalse - admin control panel and dashboard that's based on Bootstrap 3",
+  "homepage": "https://boolfalse.am/",
+  "type": "template",
+  "keywords": [
+    "css",
+    "js",
+    "less",
+    "responsive",
+    "back-end",
+    "template",
+    "theme",
+    "web",
+    "admin"
+  ],
+  "authors": [
+    {
+      "name": "BoolFalse",
+      "email": "boolfalse@boolfalse.am"
+    }
+  ],
+  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/BoolFalse/BoolFalse/issues"
+  },
+  "require": {
+    "composer/installers": "1.*",
+    "bower-asset/jquery": ">=1.9.0 <4.0.0"
+  }
+}
