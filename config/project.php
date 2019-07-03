@@ -6,11 +6,13 @@ return [
         'dev_email' => env('DEV_EMAIL', 'test@gmail.com'),
         'dev_password' => env('DEV_PASSWORD', 'secret'),
 
-        'users_count' => 5,
+        'users_count' => 50,
         'user_faker_image_width' => 306, // 1400,
         'user_faker_image_height' => 440, // 1000,
     ],
     'user' => [
+        'min_birth_year' => 1950,
+        'teen_age' => 16,
         'images_folder' => 'user-images',
         // width, height, padding-bottom, padding-right
         'image_sizes' => [

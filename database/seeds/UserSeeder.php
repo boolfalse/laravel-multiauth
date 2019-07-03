@@ -6,9 +6,12 @@ use Faker\Factory;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\DB;
 
 class UserSeeder extends Seeder
 {
+    protected $seed_items = [];
+
     public function create_dev_users()
     {
         User::create([
@@ -56,6 +59,8 @@ class UserSeeder extends Seeder
         for ($i = 0; $i < config('project.seed.users_count'); $i++) {
             $this->uploadImage($uploads_path, $date, $faker);
         }
+
+        DB::table('users')->insert($this->seed_items);
     }
 
     public function uploadImage($uploads_path, $date, $faker)
@@ -108,16 +113,18 @@ class UserSeeder extends Seeder
             $img->save($image_path);
         }
 
-        User::create([
+        $this->seed_items[] = [
             'name' => $faker->name,
             'email' => $faker->email,
+            'address' => $faker->address,
+            'birth_year' => $faker->numberBetween(config('project.user.min_birth_year'), $date->year - config('project.user.teen_age')),
             'password' => bcrypt('secret'),
             'created_at' => $date,
             'updated_at' => $date,
 
             'image' => $main_image_name,
-            'original_image_path' => $date->year . '/' . $date->month . '/' . $date->day . '/' . $main_image_name,
-        ]);
+            'original_image_path' => $date->year . DIRECTORY_SEPARATOR . $date->month . DIRECTORY_SEPARATOR . $date->day . DIRECTORY_SEPARATOR . $main_image_name,
+        ];
     }
 
 }
