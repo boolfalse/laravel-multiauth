@@ -114,8 +114,12 @@ class UserSeeder extends Seeder
                         $constraint->aspectRatio(); // resize image, if division of dimensions aren't between 1.2 and 2
                     }
                 });
+
             // make watermark for current image
-            $img->insert(public_path('images' . DIRECTORY_SEPARATOR . 'watermarks' . DIRECTORY_SEPARATOR . $version . '_watermark.png'), 'bottom-right', $sizes['pb'], $sizes['pr']);
+            $img->insert(public_path('images' . DIRECTORY_SEPARATOR . 'watermarks' . DIRECTORY_SEPARATOR . $version . '_watermark.png'),
+                'bottom-right',
+                $sizes['pb'],
+                $sizes['pr']);
 
             // if division of dimensions aren't between 1.2 and 2, then add a color
             if($div < config('project.user.image_divisions.min') || $div > config('project.user.image_divisions.max')){
