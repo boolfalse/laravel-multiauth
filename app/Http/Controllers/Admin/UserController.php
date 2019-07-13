@@ -30,6 +30,7 @@ class UserController extends Controller
     {
         $items = User::select(
             'name',
+            'image',
             'status',
             'email',
             'id'

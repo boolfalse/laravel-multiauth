@@ -54,6 +54,7 @@
         <tr>
             <th>Name</th>
             <th>Email</th>
+            <th>Image</th>
             <th>Status</th>
 
             <th>Options</th>
@@ -103,6 +104,10 @@
                     {
                         "data": "email",
                         "name": "email",
+                    },
+                    {
+                        "data": "image",
+                        "name": "image",
                     },
                     {
                         "data": "status",
@@ -155,6 +160,17 @@
                                     '<span>' + full_row.status + '</span>' +
                                     '</div>';
                             }
+                        }
+                    },
+                    {
+                        'targets': -3,
+                        'defaultContent': '-',
+                        'searchable': false,
+                        'orderable': false,
+                        'width': '10%',
+                        'className': 'dt-body-center',
+                        'render': function (data, type, full_row, meta){
+                            return '<img onerror="this.src=\'{{ asset('/images/no_image/small.jpg') }}\'" src="{{ asset('/uploads/' . config('project.user.images_folder') . '/small') }}/' + full_row.image + '" />';
                         }
                     },
                 ],
