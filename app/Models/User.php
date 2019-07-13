@@ -9,11 +9,15 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    const NOT_ACTIVE = 'not_active';
+    const ACTIVE = 'active';
+
     protected $table = 'users';
 
     protected $fillable = [
         'name',
         'email',
+        'status',
         'address',
         'birth_year',
         'image',

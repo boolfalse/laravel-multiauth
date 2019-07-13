@@ -22,7 +22,14 @@ Route::group([
 
     // for administrator
     Route::group(['middleware' => ['role:administrator']], function () {
-        //
+        // users
+        Route::group(['prefix' => 'users', 'as' => 'users.',], function () {
+            Route::get('all', 'UserController@index')->name('index');
+            Route::get('ajax', 'UserController@ajax')->name('ajax');
+            Route::get('show/{id}', 'UserController@show');
+            Route::post('change_status', 'UserController@change_status')->name('change_status');
+            Route::post('delete', 'UserController@delete')->name('delete');
+        });
     });
 
     // for moderators

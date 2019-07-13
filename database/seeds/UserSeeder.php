@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => config('project.seed.dev_name'),
             'email' => config('project.seed.dev_email'),
+            'status' => User::ACTIVE,
             'password' => bcrypt(config('project.seed.dev_password')),
         ]);
     }
@@ -61,16 +62,22 @@ class UserSeeder extends Seeder
             }
         }
 
+        $user_statuses = [
+            User::ACTIVE,
+            User::NOT_ACTIVE,
+        ];
+
         // add candidate users to the $seed_items
         for ($i = 0; $i < config('project.seed.users_count'); $i++) {
-            $this->uploadImage($uploads_path, $date, $faker);
+            $status = $faker->randomElement($user_statuses);
+            $this->uploadImage($uploads_path, $date, $faker, $status);
         }
 
         // create users via importing $seed_items to 'users' table
         DB::table('users')->insert($this->seed_items);
     }
 
-    public function uploadImage($uploads_path, $date, $faker)
+    public function uploadImage($uploads_path, $date, $faker, $status): void
     {
         // storage folder path
         $faker_image_folder_path = 'storage' . DIRECTORY_SEPARATOR .
@@ -134,6 +141,7 @@ class UserSeeder extends Seeder
         $this->seed_items[] = [
             'name' => $faker->name,
             'email' => $faker->email,
+            'status' => $status,
             'password' => bcrypt('secret'),
             'created_at' => $date,
             'updated_at' => $date,
