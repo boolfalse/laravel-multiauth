@@ -127,7 +127,7 @@
                 //     }
                 // },
                 'columnDefs': [
-                    {
+                    { // options
                         'targets': -1,
                         'defaultContent': '-',
                         'searchable': false,
@@ -142,7 +142,7 @@
                         }
 
                     },
-                    {
+                    { // status
                         'targets': -2,
                         'defaultContent': '-',
                         'searchable': false,
@@ -150,10 +150,9 @@
                         'width': '10%',
                         'className': 'dt-body-center',
                         'render': function (data, type, full_row, meta){
-                            if(full_row.status == "{{ $status_active }}" || full_row.status == "{{ $status_not_active }}"){
+                            if(full_row.status == "{{ $statuses['active'] }}" || full_row.status == "{{ $statuses['not_active'] }}"){
                                 return '<div style="display: block">' +
-                                    //ss https://codepen.io/AllThingsSmitty/pen/MmxxOz
-                                    '<label class="switch"> <input onchange="change_status_action(this.getAttribute(\'data-id\'))" id="checkbox" data-id="' + full_row.id + '" type="checkbox" ' + (full_row.status == "{{ $status_active }}" ? "checked" : "") + ' /> <div class="slider round"> </div> </label>' +
+                                    '<label class="switch"> <input onchange="change_status_action(this.getAttribute(\'data-id\'))" id="checkbox" data-id="' + full_row.id + '" type="checkbox" ' + (full_row.status == "{{ $statuses['active'] }}" ? "checked" : "") + ' /> <div class="slider round"> </div> </label>' +
                                     '</div>';
                             } else {
                                 return '<div style="display: block">' +
@@ -162,7 +161,7 @@
                             }
                         }
                     },
-                    {
+                    { // image
                         'targets': -3,
                         'defaultContent': '-',
                         'searchable': false,
@@ -170,7 +169,11 @@
                         'width': '10%',
                         'className': 'dt-body-center',
                         'render': function (data, type, full_row, meta){
-                            return '<img onerror="this.src=\'{{ asset('/images/no_image/small.jpg') }}\'" src="{{ asset('/uploads/' . config('project.user.images_folder') . '/small') }}/' + full_row.image + '" />';
+                            if(full_row.image){
+                                return '<img src="{{ asset('/uploads/' . config('project.user.images_folder') . '/small') }}/' + full_row.image + '" />';
+                            } else {
+                                return '<img src="{{ asset('/images/no_image/small.jpg') }}" />';
+                            }
                         }
                     },
                 ],

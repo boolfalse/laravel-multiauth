@@ -21,8 +21,10 @@ class UserController extends Controller
     public function index()
     {
         return view('admin.pages.users.index', [
-            'status_active' => User::ACTIVE,
-            'status_not_active' => User::NOT_ACTIVE,
+            'statuses' => [
+                'active' => User::ACTIVE,
+                'not_active' => User::NOT_ACTIVE,
+            ],
         ]);
     }
 
