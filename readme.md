@@ -27,6 +27,7 @@ In the root of you project run:
 ```shell
 $ composer install
 $ php artisan key:generate
+$ php artisan storage:link
 $ php artisan clearcaches
 $ php artisan droptables
 $ php artisan migrate
