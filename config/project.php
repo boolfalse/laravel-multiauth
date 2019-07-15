@@ -7,8 +7,8 @@ return [
         'dev_password' => env('DEV_PASSWORD', 'secret'),
 
         'users_count' => 50,
-        'user_faker_image_width' => 306, // 1400,
-        'user_faker_image_height' => 440, // 1000,
+        'user_faker_image_width' => 1400,
+        'user_faker_image_height' => 1000,
     ],
     'user' => [
         'min_birth_year' => 1950,
@@ -17,20 +17,20 @@ return [
         // width, height, padding-bottom, padding-right
         'image_sizes' => [
             "small" => [
-                "w" => 120, // 70
-                "h" => 195, // 70
+                "w" => 70,
+                "h" => 70,
                 "pb" => 3,
                 "pr" => 3,
             ],
             "medium" => [
-                "w" => 160, // 370,
-                "h" => 260, // 200,
+                "w" => 260,
+                "h" => 160,
                 "pb" => 5,
                 "pr" => 5,
             ],
             "large" => [
-                "w" => 306, // 1140,
-                "h" => 440, // 642,
+                "w" => 642,
+                "h" => 440,
                 "pb" => 10,
                 "pr" => 10,
             ],
