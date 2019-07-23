@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-    <p>User id = {{ $item->id  }}</p>
+    <h2>Product ID: {{ $item->id }}</h2>
 @endsection
 
 @section('custom_scripts')

@@ -23,10 +23,16 @@ class CleanUploads extends Command
         // delete uploads from public
         $directory = 'storage' . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . config('project.user.images_folder');
         $file->cleanDirectory($directory);
+        $directory = 'storage' . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . config('project.product.images_folder');
+        $file->cleanDirectory($directory);
 
         // delete uploads from storage
         foreach (config('project.user.image_sizes') as $version => $sizes){
             $directory = 'public' . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . config('project.user.images_folder') . DIRECTORY_SEPARATOR . $version;
+            $file->cleanDirectory($directory);
+        }
+        foreach (config('project.product.image_sizes') as $version => $sizes){
+            $directory = 'public' . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . config('project.product.images_folder') . DIRECTORY_SEPARATOR . $version;
             $file->cleanDirectory($directory);
         }
 

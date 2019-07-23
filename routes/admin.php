@@ -44,7 +44,13 @@ Route::group([
 
     // for managers
     Route::group(['middleware' => ['role:administrator|moderator|manager']], function () {
-        //
+        // products
+        Route::group(['prefix' => 'products', 'as' => 'products.',], function () {
+            Route::get('all', 'ProductController@index')->name('index');
+            Route::get('ajax', 'ProductController@ajax')->name('ajax');
+            Route::get('create', 'ProductController@create')->name('create');
+            Route::post('change_status', 'ProductController@change_status')->name('change_status');
+        });
     });
 
 });

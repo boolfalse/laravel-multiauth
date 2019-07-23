@@ -90,8 +90,8 @@ class UserSeeder extends Seeder
 
         // download requested image to storage folder
         $main_image_name = $faker->image($faker_image_folder_path,
-            config('project.seed.user_faker_image_width'),
-            config('project.seed.user_faker_image_height'),
+            config('project.seed.faker_image_width'),
+            config('project.seed.faker_image_height'),
             null,
             false);
 

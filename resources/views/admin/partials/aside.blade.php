@@ -7,8 +7,13 @@
 
             <li class="{{ $nav == 'dashboard' ? 'active' : '' }}"><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             {{--//ss roles in "config/project.admin.roles"--}}
+            @if($admin_role == 'administrator')
+            @endif
             @if($admin_role == 'administrator' || $admin_role == 'moderator')
                 <li class="{{ $nav == 'users' ? 'active' : '' }}"><a href="{{ route('admin.users.index') }}"><i class="fa fa-user"></i> <span>Users</span></a></li>
+            @endif
+            @if($admin_role == 'administrator' || $admin_role == 'moderator' || $admin_role == 'manager')
+                <li class="{{ $nav == 'products' ? 'active' : '' }}"><a href="{{ route('admin.products.index') }}"><i class="fa fa-book"></i> <span>Products</span></a></li>
             @endif
         </ul>
     </section>
