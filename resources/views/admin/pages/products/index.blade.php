@@ -13,7 +13,7 @@
                 approved: '<i class="fa fa-thumbs-up"></i>',
                 selector: 'selector',
             }, options_contents = {
-                view: '<i class="fa fa-edit"></i>',
+                view: '<i class="fa fa-eye"></i>',
                 delete: '<i class="fa fa-remove"></i>'
             };
         // } else {
@@ -23,7 +23,7 @@
         //         approved: 'approved',
         //         selector: 'selector'
         //     }, options_contents = {
-        //         view: '<i class="fa fa-edit"></i> View',
+        //         view: '<i class="fa fa-eye"></i> View',
         //         delete: '<i class="fa fa-remove"></i> Delete'
         //     };
         // }

@@ -54,7 +54,18 @@ class ProductController extends Controller
 
     public function show($item_id)
     {
-        $categories = Category::all();
+        $item = Product::find($item_id);
+        if(empty($item)){
+            return redirect()->route('admin.dashboard');
+        }
+
+        return view('admin.pages.products.show', [
+            'item' => $item,
+        ]);
+    }
+
+    public function edit($item_id)
+    {
         $item = Product::find($item_id);
         if(empty($item)){
             return redirect()->route('admin.dashboard');
@@ -62,8 +73,12 @@ class ProductController extends Controller
 
         return view('admin.pages.products.edit', [
             'item' => $item,
-            'categories' => $categories,
         ]);
+    }
+
+    public function create()
+    {
+        return view('admin.pages.products.create');
     }
 
     public function delete(Request $request)

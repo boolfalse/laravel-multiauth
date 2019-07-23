@@ -26,7 +26,7 @@ Route::group([
         Route::group(['prefix' => 'users', 'as' => 'users.',], function () {
             Route::get('all', 'UserController@index')->name('index');
             Route::get('ajax', 'UserController@ajax')->name('ajax');
-            Route::get('show/{id}', 'UserController@show');
+            Route::get('show/{id}', 'UserController@show'); // ->where('id', '[0-9]+');
             Route::post('change_status', 'UserController@change_status')->name('change_status');
             Route::post('delete', 'UserController@delete')->name('delete');
         });
@@ -49,6 +49,8 @@ Route::group([
             Route::get('all', 'ProductController@index')->name('index');
             Route::get('ajax', 'ProductController@ajax')->name('ajax');
             Route::get('create', 'ProductController@create')->name('create');
+            Route::get('show/{id}', 'ProductController@show')->name('show'); // ->where('id', '[0-9]+');
+            Route::get('edit/{id}', 'ProductController@edit')->name('edit'); // ->where('id', '[0-9]+');
             Route::post('change_status', 'ProductController@change_status')->name('change_status');
         });
     });
