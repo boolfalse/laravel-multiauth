@@ -5,12 +5,28 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/switcher3.css') }}"/>
     <script>
-        var status_contents = {
-            blocked: 'blocked',
-            pending: 'pending',
-            approved: 'approved',
-            selector: 'selector'
-        };
+
+        // if(device_is_mobile){
+            var status_contents = {
+                blocked: '<i class="fa fa-thumbs-down"></i>',
+                pending: '<i class="fa fa-pause"></i>',
+                approved: '<i class="fa fa-thumbs-up"></i>',
+                selector: 'selector',
+            }, options_contents = {
+                view: '<i class="fa fa-edit"></i>',
+                delete: '<i class="fa fa-remove"></i>'
+            };
+        // } else {
+        //     var status_contents = {
+        //         blocked: 'blocked',
+        //         pending: 'pending',
+        //         approved: 'approved',
+        //         selector: 'selector'
+        //     }, options_contents = {
+        //         view: '<i class="fa fa-edit"></i> View',
+        //         delete: '<i class="fa fa-remove"></i> Delete'
+        //     };
+        // }
 
         function changePosition(item_id, position)
         {
@@ -40,8 +56,8 @@
                     selector.innerHTML = '<i class="fa fa-thumbs-up"></i>';
                     selector.style.backgroundColor = "green";
                     break;
-                // default:
-                // pending
+                default:
+                    // pending
             }
         }
         function initSwitcher(position, item_id, change)
@@ -127,6 +143,7 @@
                         'searchable': false,
                         'orderable': false,
                         'className': 'dt-body-center',
+                        // 'width': '10%',
                         'render': function (data, type, full_row, meta){
                             return '<div style="display: block;">' + full_row.admin_name_for_datatable + '</div>';
                         }
@@ -136,7 +153,7 @@
                         'defaultContent': '-',
                         'searchable': false,
                         'orderable': false,
-                        'width': '10%',
+                        // 'width': '10%',
                         'className': 'dt-body-center',
                         'render': function (data, type, full_row, meta){
                             return '<img onerror="this.src=\'{{ asset('/images/no_image/small.jpg') }}\'" src="{{ asset('/uploads/' . config('project.product.images_folder') . '/small') }}/' + full_row.main_image + '" />';
@@ -147,7 +164,7 @@
                         'defaultContent': '-',
                         'searchable': true,
                         'orderable': false,
-                        'width': '10%',
+                        // 'width': '10%',
                         // 'className': 'dt-body-center',
                     },
                     { // status
@@ -155,7 +172,7 @@
                         'defaultContent': '-',
                         'searchable': false,
                         'orderable': false,
-                        // 'width': '10%',
+                        // 'width': '20%',
                         'render': function (data, type, full_row, meta){
                             return '<div class="switcher" data-item="' + full_row.id + '"> \
                                     <div class="switch2 blocked" onclick="initSwitcher(\'blocked\', this.parentElement.getAttribute(\'data-item\'), true)">' + status_contents.blocked + '</div> \
@@ -170,7 +187,7 @@
                         'defaultContent': '-',
                         'searchable': false,
                         'orderable': false,
-                        'width': '10%',
+                        // 'width': '10%',
                         'className': 'dt-body-center',
                         'render': function (data, type, full_row, meta){
                             return '<div style="display: block">' +
