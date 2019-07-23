@@ -29,6 +29,7 @@ $ composer install
 $ php artisan key:generate
 $ php artisan storage:link
 $ php artisan clearcaches
+$ php artisan cleanuploads
 $ php artisan droptables
 $ php artisan migrate
 $ php artisan db:seed
