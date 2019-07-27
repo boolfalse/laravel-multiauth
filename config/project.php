@@ -51,6 +51,11 @@ return [
             'moderator' => 'moderator',
             'manager' => 'manager',
         ],
+        'roles_priorities' => [
+            'administrator' => 30,
+            'moderator' => 20,
+            'manager' => 10,
+        ],
     ],
     'product' => [
         'title_length_limit' => 20,
