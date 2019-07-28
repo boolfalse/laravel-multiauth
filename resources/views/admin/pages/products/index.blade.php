@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/datatables.min.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/switcher3.css') }}"/>
     <script>
 
@@ -100,7 +100,7 @@
 @endsection
 
 @section('custom_scripts')
-    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('js/admin/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript">
         function initDataTable() {
             var YajraDataTable = $('#yajra_datatable').DataTable({
