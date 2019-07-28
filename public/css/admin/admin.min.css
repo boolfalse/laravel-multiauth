@@ -12,7 +12,7 @@ html,body{min-height:100%}.layout-boxed html,.layout-boxed body{height:100%}body
     padding: 0;
     width: 22px;
     height: 22px;
-    background: url(../blue.png) no-repeat;
+    background: url(../../images/admin/blue.png) no-repeat;
     border: none;
     cursor: pointer;
 }
