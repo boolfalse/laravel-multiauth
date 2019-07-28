@@ -2,49 +2,7 @@
 
 @section('custom_styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/datatables.min.css') }}"/>
-    <style>
-        .switch {
-            display: inline-block;
-            height: 34px;
-            position: relative;
-            width: 60px;
-        }
-        .switch input {
-            display:none;
-        }
-        .slider {
-            background-color: #ccc;
-            bottom: 0;
-            cursor: pointer;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition: .4s;
-        }
-        .slider:before {
-            background-color: #fff;
-            bottom: 4px;
-            content: "";
-            height: 26px;
-            left: 4px;
-            position: absolute;
-            transition: .4s;
-            width: 26px;
-        }
-        input:checked + .slider {
-            background-color: #66bb6a;
-        }
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-        .slider.round {
-            border-radius: 34px;
-        }
-        .slider.round:before {
-            border-radius: 50%;
-        }
-    </style>
+    @include('admin.components.switcher2')
 @endsection
 
 @section('content')
@@ -62,26 +20,7 @@
         </thead>
     </table>
 
-    <div class="modal modal-danger fade" id="modal_delete">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Delete User</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Are You sure You want to delete this User?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancel</button>
-                    <button id="delete_action" type="button" class="btn btn-outline">Submit</button>
-                    <input type="hidden" id="item_id" value="0" />
-                </div>
-            </div>
-        </div>
-    </div>
-
+    @include('admin.components.modal-delete')
 
 @endsection
 
