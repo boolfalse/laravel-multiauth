@@ -1,5 +1,11 @@
 @extends('admin.layouts.app')
 
+{{--@push('custom_styles')--}}
+{{--@endpush--}}
+
 @section('content')
-    <p>Create Product Page.</p>
+    <h2>Create Product page</h2>
 @endsection
+
+{{--@push('custom_scripts')--}}
+{{--@endpush--}}

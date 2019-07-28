@@ -1,21 +1,20 @@
 @extends('admin.layouts.app')
 
-@section('content')
-
+@push('custom_styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/datatables.min.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/switcher3.css') }}"/>
     <script>
 
         // if(device_is_mobile){
-            var status_contents = {
-                blocked: '<i class="fa fa-thumbs-down"></i>',
-                pending: '<i class="fa fa-pause"></i>',
-                approved: '<i class="fa fa-thumbs-up"></i>',
-                selector: 'selector',
-            }, options_contents = {
-                view: '<i class="fa fa-eye"></i>',
-                delete: '<i class="fa fa-remove"></i>'
-            };
+        var status_contents = {
+            blocked: '<i class="fa fa-thumbs-down"></i>',
+            pending: '<i class="fa fa-pause"></i>',
+            approved: '<i class="fa fa-thumbs-up"></i>',
+            selector: 'selector',
+        }, options_contents = {
+            view: '<i class="fa fa-eye"></i>',
+            delete: '<i class="fa fa-remove"></i>'
+        };
         // } else {
         //     var status_contents = {
         //         blocked: 'blocked',
@@ -57,7 +56,7 @@
                     selector.style.backgroundColor = "green";
                     break;
                 default:
-                    // pending
+                // pending
             }
         }
         function initSwitcher(position, item_id, change)
@@ -84,6 +83,9 @@
             }
         }
     </script>
+@endpush
+
+@section('content')
 
     <table id="yajra_datatable" class="table table-bordered">
         <thead>
@@ -99,7 +101,7 @@
 
 @endsection
 
-@section('custom_scripts')
+@push('custom_scripts')
     <script src="{{ asset('js/admin/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript">
         function initDataTable() {
@@ -207,4 +209,4 @@
 
         });
     </script>
-@endsection
+@endpush

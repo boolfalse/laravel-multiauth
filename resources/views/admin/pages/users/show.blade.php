@@ -1,11 +1,11 @@
 @extends('admin.layouts.app')
 
-@section('custom_styles')
-@endsection
+{{--@push('custom_styles')--}}
+{{--@endpush--}}
 
 @section('content')
     <p>User id = {{ $item->id  }}</p>
 @endsection
 
-@section('custom_scripts')
-@endsection
+{{--@push('custom_scripts')--}}
+{{--@endpush--}}

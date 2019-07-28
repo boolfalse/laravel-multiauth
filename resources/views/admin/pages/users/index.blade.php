@@ -1,9 +1,9 @@
 @extends('admin.layouts.app')
 
-@section('custom_styles')
+@push('custom_styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/datatables.min.css') }}"/>
     @include('admin.components.switcher2')
-@endsection
+@endpush
 
 @section('content')
 
@@ -24,7 +24,7 @@
 
 @endsection
 
-@section('custom_scripts')
+@push('custom_scripts')
     <script src="{{ asset('js/admin/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript">
         function delete_action(item_id){
@@ -171,4 +171,4 @@
 
         });
     </script>
-@endsection
+@endpush

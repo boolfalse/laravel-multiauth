@@ -2,7 +2,7 @@
 <html>
 <head>
     @include('admin.partials.head')
-    @yield('custom_styles')
+    @stack('custom_styles')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
@@ -42,7 +42,7 @@
 
 @include('admin.partials.scripts')
 
-@yield('custom_scripts')
+@stack('custom_scripts')
 
 </body>
 </html>
